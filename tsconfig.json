@@ -3,31 +3,65 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "outDir": "./dist/out-tsc",
-    "strict": true,
-    "noImplicitOverride": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
-    "isolatedModules": true,
+    "noEmitOnError": false,
+    "checkJs": false,
+    "downlevelIteration": true,
     "esModuleInterop": true,
+    "importHelpers": true,
+    "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "moduleResolution": "bundler",
-    "importHelpers": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitThis": true,
+    "noImplicitReturns": true,
+    "noImplicitAny": true,
+    "ignoreDeprecations": "5.0",
+    "suppressImplicitAnyIndexErrors": true,
     "target": "ES2022",
     "module": "ES2022",
-    "lib": [
-      "ES2022",
-      "dom"
-    ]
+    "baseUrl": "./",
+    "resolveJsonModule": true,
+    "paths": {
+      "~/*": ["projects/shared/src/lib/*"],
+      "@api/*": ["projects/shared/src/lib/api/*"],
+      "@classes/*": ["projects/shared/src/lib/classes/*"],
+      "@components/*": ["projects/shared/src/lib/components/*"],
+      "@constants/*": ["projects/shared/src/lib/constants/*"],
+      "@datatable/*": ["projects/shared/src/lib/datatable/*"],
+      "@decorators/*": ["projects/shared/src/lib/decorators/*"],
+      "@directives/*": ["projects/shared/src/lib/directives/*"],
+      "@enum/*": ["projects/shared/src/lib/enum/*"],
+      "@forms/*": ["projects/shared/src/lib/forms/*"],
+      "@models/*": ["projects/shared/src/lib/models/*"],
+      "@pipes/*": ["projects/shared/src/lib/pipes/*"],
+      "@services/*": ["projects/shared/src/lib/services/*"],
+      "@testing/*": ["projects/shared/src/lib/testing/*"]
+    },
+    "typeRoots": ["node_modules/@types", "projects/shared/typings.d.ts"],
+    "lib": ["es2018", "dom"],
+    "allowJs": true,
+    "preserveSymlinks": true
   },
+  "include": ["projects/shared/src/**/*.ts", "projects/shared/typings.d.ts"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "tmp",
+    "coverage",
+    "projects/shared/src/**/*.spec.ts",
+    "projects/shared/src/**/*.d.ts",
+    "projects/shared/src/lib/testing/*"
+  ],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
-    "strictInjectionParameters": true,
-    "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "strictInjectionParameters": false,
+    "strictInputAccessModifiers": false,
+    "strictTemplates": false
   }
 }

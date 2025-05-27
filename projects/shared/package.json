@@ -1,0 +1,66 @@
+{
+  "name": "@ceph-ui/shared",
+  "private": false,
+  "version": "0.0.9",
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": {
+    "name": "Ivo Almeida",
+    "email": "ivo.l.almeida@ibm.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ivoalmeida/ceph-ui.git"
+  },
+  "main": "fesm2022/ceph-ui-shared.mjs",
+  "dependencies": {
+    "@ng-bootstrap/ng-bootstrap": "17.0.1",
+    "detect-browser": "5.2.0",
+    "lodash": "^4.17.21",
+    "ng-click-outside": "9.0.0",
+    "ng2-charts": "^7.0.0",
+    "ngx-cookie-service": "18.0.0",
+    "ngx-toastr": "17.0.2",
+    "simplebar-angular": "3.2.6"
+  },
+  "peerDependencies": {
+    "@angular/cdk": "^18.0.0 || ^19.0.0",
+    "@angular/common": "^18.0.0 || ^19.0.0",
+    "@angular/core": "^18.0.0 || ^19.0.0",
+    "@angular/forms": "^18.0.0 || ^19.0.0",
+    "@angular/router": "^18.0.0 || ^19.0.0",
+    "@carbon/icons": "^11.41.0",
+    "@carbon/styles": "^1.57.0",
+    "carbon-components-angular": "^5.56.2",
+    "rxjs": "^7.5.0",
+    "zone.js": "~0.14.0 || ~0.15.0"
+  },
+  "sideEffects": false,
+  "devDependencies": {
+    "@angular/animations": "^18.0.0",
+    "@angular/cdk": "^18.0.0",
+    "@angular/common": "^18.0.0",
+    "@angular/compiler": "^18.0.0",
+    "@angular/core": "^18.0.0",
+    "@angular/forms": "^18.0.0",
+    "@angular/platform-browser": "^18.0.0",
+    "@angular/platform-browser-dynamic": "^18.0.0",
+    "@angular/router": "^18.0.0",
+    "@types/lodash": "^4.17.17",
+    "rxjs": "~7.5.0",
+    "tslib": "^2.3.0",
+    "zone.js": "^0.14.10"
+  },
+  "exports": {
+    ".": {
+      "import": "./fesm2022/ceph-ui-shared.mjs",
+      "require": "./fesm2022/ceph-ui-shared.mjs"
+    },
+    "./*": {
+      "import": "./fesm2022/*.mjs",
+      "require": "./fesm2022/*.mjs",
+      "styles": "./styles/*.scss"
+    }
+  }
+}
