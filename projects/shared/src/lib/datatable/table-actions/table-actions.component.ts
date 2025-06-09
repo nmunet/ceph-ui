@@ -49,6 +49,7 @@ export class TableActionsComponent implements OnChanges, OnInit {
   dropDownActions: CdTableAction[] = [];
 
   icons = Icons;
+  component: { create: true; update: false; delete: false; };
 
   ngOnInit() {
     this.removeActionsWithNoPermissions();

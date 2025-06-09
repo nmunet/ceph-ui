@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DimlessBinaryPipe } from '../../pipes/dimless-binary.pipe';
 import { FormatterService } from '../../services/formatter.service';
-import { configureTestBed } from '~/testing/unit-test-helper';
+import { configureTestBed } from '../../testing/unit-test-helper';
 import { SparklineComponent } from './sparkline.component';
 import { ResizeObserver as ResizeObserverPolyfill } from '@juggle/resize-observer';
 

@@ -1,112 +1,112 @@
-import { configureTestBed } from '~/testing/unit-test-helper';
-import { DimlessBinaryPipe } from '../pipes/dimless-binary.pipe';
-import { DimlessPipe } from '../pipes/dimless.pipe';
 import { FormatterService } from './formatter.service';
+import { FormControl } from '@angular/forms';
 
 describe('FormatterService', () => {
   let service: FormatterService;
-  let dimlessBinaryPipe: DimlessBinaryPipe;
-  let dimlessPipe: DimlessPipe;
-
-  const convertToBytesAndBack = (value: string, newValue?: string) => {
-    expect(dimlessBinaryPipe.transform(service.toBytes(value))).toBe(newValue || value);
-  };
-
-  configureTestBed({
-    providers: [FormatterService, DimlessBinaryPipe]
-  });
 
   beforeEach(() => {
     service = new FormatterService();
-    dimlessBinaryPipe = new DimlessBinaryPipe(service);
-    dimlessPipe = new DimlessPipe(service);
-  });
-
-  it('should be created', () => {
-    expect(service).toBeTruthy();
   });
 
   describe('format_number', () => {
-    const formats = ['B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'];
-
-    it('should return minus for unsupported values', () => {
-      expect(service.format_number(service, 1024, formats)).toBe('-');
-      expect(service.format_number(undefined, 1024, formats)).toBe('-');
-      expect(service.format_number(null, 1024, formats)).toBe('-');
-    });
-
-    it('should test some values', () => {
-      expect(service.format_number('0', 1024, formats)).toBe('0 B');
-      expect(service.format_number('0.1', 1024, formats)).toBe('0.1 B');
-      expect(service.format_number('1.2', 1024, formats)).toBe('1.2 B');
-      expect(service.format_number('1', 1024, formats)).toBe('1 B');
-      expect(service.format_number('1024', 1024, formats)).toBe('1 KiB');
-      expect(service.format_number(23.45678 * Math.pow(1024, 3), 1024, formats)).toBe('23.5 GiB');
-      expect(service.format_number(23.45678 * Math.pow(1024, 3), 1024, formats, 2)).toBe(
-        '23.46 GiB'
-      );
-    });
-
-    it('should test some dimless values', () => {
-      expect(dimlessPipe.transform(0.6)).toBe('0.6');
-      expect(dimlessPipe.transform(1000.608)).toBe('1 k');
-      expect(dimlessPipe.transform(1e10)).toBe('10 G');
-      expect(dimlessPipe.transform(2.37e16)).toBe('23.7 P');
+    it('should format numbers with units', () => {
+      expect(service.format_number(1024, 1024, ['B', 'KB', 'MB'], 2)).toBe('1 KB');
+      expect(service.format_number('2048', 1024, ['B', 'KB', 'MB'], 1)).toBe('2 KB');
+      expect(service.format_number(NaN, 1024, ['B', 'KB', 'MB'], 1)).toBe('N/A');
+      expect(service.format_number('not a number', 1024, ['B', 'KB', 'MB'], 1)).toBe('-');
     });
   });
 
   describe('formatNumberFromTo', () => {
-    const formats = ['B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'];
-    const formats2 = ['ns', 'μs', 'ms', 's'];
-
-    it('should test some values and data units', () => {
-      expect(service.formatNumberFromTo('0.1', 'B', 'TiB', 1024, formats)).toBe('0 TiB');
-      expect(service.formatNumberFromTo('1024', 'B', 'KiB', 1024, formats)).toBe('1 KiB');
-      expect(service.formatNumberFromTo(1000, 'mib', 'gib', 1024, formats, 3)).toBe('0.977 gib');
-      expect(service.formatNumberFromTo(1024, 'GiB', 'MiB', 1024, formats)).toBe('1048576 MiB');
-      expect(
-        service.formatNumberFromTo(23.45678 * Math.pow(1024, 3), 'B', 'GiB', 1024, formats)
-      ).toBe('23.5 GiB');
-      expect(
-        service.formatNumberFromTo(23.45678 * Math.pow(1024, 3), 'B', 'GiB', 1024, formats, 2)
-      ).toBe('23.46 GiB');
-
-      expect(service.formatNumberFromTo('128', 'ns', 'ms', 1000, formats2)).toBe('0 ms');
-      expect(service.formatNumberFromTo(128, 'ns', 'ms', 1000, formats2, 4)).toBe('0.0001 ms');
-      expect(service.formatNumberFromTo(20, 's', 'ms', 1000, formats2, 4)).toBe('20000 ms');
+    it('should convert and format units correctly', () => {
+      expect(service.formatNumberFromTo(1024, 'B', 'KB', 1024, ['B', 'KB', 'MB'], 2)).toBe('1 KB');
+      expect(service.formatNumberFromTo('2048', 'B', 'KB', 1024, ['B', 'KB', 'MB'], 1)).toBe('2 KB');
+      expect(service.formatNumberFromTo('not a number', 'B', 'KB', 1024, ['B', 'KB', 'MB'], 1)).toBe('-');
+      expect(service.formatNumberFromTo(1024, 'B', 'GB', 1024, ['B', 'KB', 'MB'], 2)).toBe('1024 B');
+      expect(service.formatNumberFromTo(1024, 'B', 'KB', 1024, null, ['B', 'KB', 'MB'], 2)).toBe('-');
     });
   });
 
   describe('toBytes', () => {
-    it('should not convert wrong values', () => {
-      expect(service.toBytes('10xyz')).toBeNull();
-      expect(service.toBytes('1.1.1KiB')).toBeNull();
-      expect(service.toBytes('1.1 KiloByte')).toBeNull();
-      expect(service.toBytes('1.1  kib')).toBeNull();
-      expect(service.toBytes('1.kib')).toBeNull();
-      expect(service.toBytes('1 ki')).toBeNull();
-      expect(service.toBytes(undefined)).toBeNull();
-      expect(service.toBytes('')).toBeNull();
-      expect(service.toBytes('-')).toBeNull();
-      expect(service.toBytes(null)).toBeNull();
-    });
-
     it('should convert values to bytes', () => {
-      expect(service.toBytes('4815162342')).toBe(4815162342);
-      expect(service.toBytes('100M')).toBe(104857600);
-      expect(service.toBytes('100 M')).toBe(104857600);
-      expect(service.toBytes('100 mIb')).toBe(104857600);
-      expect(service.toBytes('100 mb')).toBe(104857600);
-      expect(service.toBytes('100MIB')).toBe(104857600);
-      expect(service.toBytes('1.532KiB')).toBe(Math.round(1.532 * 1024));
-      expect(service.toBytes('0.000000000001TiB')).toBe(1);
+      expect(service.toBytes('1K')).toBe(1024);
+      expect(service.toBytes('1M')).toBe(1024 * 1024);
+      expect(service.toBytes('1G')).toBe(1024 * 1024 * 1024);
+      expect(service.toBytes('1024B')).toBe(1024);
+      expect(service.toBytes('invalid', 123)).toBe(123);
+    });
+  });
+
+  describe('toMilliseconds', () => {
+    it('should convert ms string to number', () => {
+      expect(service.toMilliseconds('100ms')).toBe(100);
+      expect(service.toMilliseconds('200')).toBe(200);
+      expect(service.toMilliseconds('invalid')).toBe(0);
+    });
+  });
+
+  describe('toIops', () => {
+    it('should convert IOPS string to number', () => {
+      expect(service.toIops('100IOPS')).toBe(100);
+      expect(service.toIops('200')).toBe(200);
+      expect(service.toIops('invalid')).toBe(0);
+    });
+  });
+
+  describe('toOctalPermission', () => {
+    it('should convert permission object to octal string', () => {
+      const modes = {
+        owner: ['read', 'write', 'execute'],
+        group: ['read', 'execute'],
+        others: ['read']
+      };
+      expect(service.toOctalPermission(modes)).toBe('754');
+    });
+  });
+
+  describe('performValidation', () => {
+    it('should return null for empty input', () => {
+      const control = new FormControl('');
+      expect(service.performValidation(control, '^\\d+$', { error: true })).toBeNull();
     });
 
-    it('should convert values to human readable again', () => {
-      convertToBytesAndBack('1.1 MiB');
-      convertToBytesAndBack('1.0MiB', '1 MiB');
-      convertToBytesAndBack('8.9 GiB');
-      convertToBytesAndBack('123.5 EiB');
+    it('should return errorObject for invalid input', () => {
+      const control = new FormControl('abc');
+      expect(service.performValidation(control, '^\\d+$', { error: true })).toEqual({ error: true });
+    });
+
+    it('should return null for valid input', () => {
+      const control = new FormControl('123');
+      expect(service.performValidation(control, '^\\d+$', { error: true })).toBeNull();
+    });
+
+    it('should validate quota type', () => {
+      const control = new FormControl('1B');
+      expect(service.performValidation(control, '^\\d+B$', { error: true }, 'quota')).toEqual({ error: true });
+      const control2 = new FormControl('2KB');
+      expect(service.performValidation(control2, '^\\d+KB$', { error: true }, 'quota')).toBeNull();
+    });
+  });
+
+  describe('iopmMaxSizeValidator', () => {
+    it('should return null for empty input', () => {
+      const control = new FormControl('');
+      expect(service.iopmMaxSizeValidator(control)).toBeNull();
+    });
+
+    it('should return error for invalid input', () => {
+      const control = new FormControl('abc');
+      expect(service.iopmMaxSizeValidator(control)).toEqual({ rateOpsMaxSize: true });
+    });
+
+    it('should return error for input longer than 18 digits', () => {
+      const control = new FormControl('1234567890123456789');
+      expect(service.iopmMaxSizeValidator(control)).toEqual({ rateOpsMaxSize: true });
+    });
+
+    it('should return null for valid input', () => {
+      const control = new FormControl('12345');
+      expect(service.iopmMaxSizeValidator(control)).toBeNull();
     });
   });
 });

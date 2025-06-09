@@ -9,7 +9,9 @@
     ]
   },
   "include": [
-    "**/*.spec.ts",
-    "**/*.d.ts"
-  ]
+    "./src/lib/testing/*.ts",
+    "./src/**/*.spec.ts",
+    "./**/*.d.ts"
+  ],
+  "exclude": []
 }

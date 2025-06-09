@@ -30,6 +30,3 @@ export * from './lib/rxjs/operators/page-visibility.operator';
 export * from './lib/services/formatter.service';
 export * from './lib/services/ngzone-scheduler.service';
 export * from './lib/services/timer.service';
-// export * from './lib/testing/activated-route-stub';
-// export * from './lib/testing/unit-test-helper';
-
