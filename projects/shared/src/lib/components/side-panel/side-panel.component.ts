@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ButtonModule, IconModule, PanelModule } from 'carbon-components-angular';
 
@@ -9,7 +10,8 @@ import { ButtonModule, IconModule, PanelModule } from 'carbon-components-angular
   imports: [
     PanelModule,
     ButtonModule,
-    IconModule
+    IconModule,
+    CommonModule
   ]
 })
 export class SidePanelComponent {
