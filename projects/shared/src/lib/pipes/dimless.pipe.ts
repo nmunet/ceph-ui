@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { FormatterService } from '~/services/formatter.service';
+import { FormatterService } from '../services/formatter.service';
 
 @Pipe({
   name: 'dimless',
