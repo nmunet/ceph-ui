@@ -31,6 +31,7 @@
     "@angular/core": "^18.0.0 || ^19.0.0",
     "@angular/forms": "^18.0.0 || ^19.0.0",
     "@angular/router": "^18.0.0 || ^19.0.0",
+    "@carbon/charts-angular": "1.23.9",
     "@carbon/icons": "^11.41.0",
     "@carbon/styles": "^1.57.0",
     "carbon-components-angular": "^5.56.2",
