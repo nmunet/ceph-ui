@@ -1,6 +1,6 @@
 @use '@carbon/colors';
 @use '@carbon/themes';
-@use './src/styles/vendor/variables' as vv;
+@use '../../../../styles/vendor/variables' as vv;
 @use '@carbon/layout';
 
 .inline-tip-container {
