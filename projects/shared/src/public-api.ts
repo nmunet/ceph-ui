@@ -3,9 +3,11 @@
  */
 
 export * from './lib/classes/table-status';
+export * from './lib/classes/css-helper';
 export * from './lib/components/copy2clipboard-button/copy2clipboard-button.component';
 export * from './lib/components/sparkline/sparkline.component';
 export * from './lib/components/side-panel/side-panel.component';
+export * from './lib/components/usage-bar/usage-bar.component';
 export * from './lib/components/inline-message/inline-message.component';
 export * from './lib/datatable/directives/table-detail.directive';
 export * from './lib/datatable/index';
@@ -14,6 +16,7 @@ export * from './lib/datatable/table/table.component';
 export * from './lib/enum/cd-sort-direction';
 export * from './lib/enum/cell-template.enum';
 export * from './lib/enum/icons.enum';
+export * from './lib/enum/usage-bar-chart.enum';
 export * from './lib/forms/cd-validators';
 export * from './lib/forms/index';
 export * from './lib/models/cd-sort-prop-dir';
