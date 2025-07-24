@@ -4,7 +4,7 @@ export enum Icons {
   addCircle = 'fa fa-plus-circle', // Plus with Circle
   minusCircle = 'fa fa-minus-circle', // Minus with Circle
   edit = 'fa fa-pencil', // Edit, Edit Mode, Rename
-  destroy = 'fa fa-times', // Destroy, Remove, Delete
+  destroy = 'close', // Destroy, Remove, Delete
   destroyCircle = 'fa fa-times-circle', // Destroy, Remove, Delete
   exchange = 'fa fa-exchange', // Edit-Peer
   copy = 'fa fa-copy', // Copy
@@ -85,8 +85,12 @@ export enum Icons {
   calendar = 'fa fa-calendar',
   externalUrl = 'fa fa-external-link', // links to external page
   nfsExport = 'fa fa-server', // NFS export
-
+  idea = 'idea',
   /* Icons for special effect */
+  size16 = '16',
+  size20 = '20',
+  size24 = '24',
+  size32 = '32',
   large = 'fa fa-lg', // icon becomes 33% larger
   large2x = 'fa fa-2x', // icon becomes 50% larger
   large3x = 'fa fa-3x', // icon becomes 3 times larger
