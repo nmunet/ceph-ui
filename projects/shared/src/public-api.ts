@@ -7,6 +7,8 @@ export * from './lib/components/copy2clipboard-button/copy2clipboard-button.comp
 export * from './lib/components/sparkline/sparkline.component';
 export * from './lib/components/side-panel/side-panel.component';
 export * from './lib/components/inline-message/inline-message.component';
+export * from './lib/components/alert-panel/alert-panel.component';
+export * from './lib/components/details-card/details-card.component';
 export * from './lib/datatable/directives/table-detail.directive';
 export * from './lib/datatable/index';
 export * from './lib/datatable/table-actions/table-actions.component';
