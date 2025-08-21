@@ -33,7 +33,7 @@ export enum Icons {
   share = 'fa fa-share-alt', // share
   key = 'fa fa-key-modern', // S3 Keys, Swift Keys, Authentication
   warning = 'fa fa-exclamation-triangle', // Notification warning
-  info = 'fa fa-info', // Notification information
+  info = 'information', // Notification information
   infoCircle = 'fa fa-info-circle', // Info on landing page
   questionCircle = 'fa fa-question-circle-o',
   danger = 'fa fa-exclamation-circle',
