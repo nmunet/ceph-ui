@@ -1,7 +1,7 @@
 import { Component, HostListener, Input } from '@angular/core';
 
 import { detect } from 'detect-browser';
-import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { ToastrService } from 'ngx-toastr';
 
 import { Icons } from '../../enum/icons.enum';
 import { NgIf, NgClass } from '@angular/common';
@@ -18,7 +18,6 @@ import { IconModule } from 'carbon-components-angular/icon';
         NgClass,
         ButtonModule,
         IconModule,
-        ToastrModule,
     ]
 })
 export class Copy2ClipboardButtonComponent {
