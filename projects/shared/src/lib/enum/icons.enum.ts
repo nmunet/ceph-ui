@@ -86,6 +86,7 @@ export enum Icons {
   externalUrl = 'fa fa-external-link', // links to external page
   nfsExport = 'fa fa-server', // NFS export
   idea = 'idea',
+  chevronDown = 'chevron--down',
   /* Icons for special effect */
   size16 = '16',
   size20 = '20',
