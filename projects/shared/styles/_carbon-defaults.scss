@@ -5,7 +5,7 @@
 );
 @use '@carbon/layout';
 @use '@carbon/colors';
-@use '../../styles/vendor/variables' as vv;
+@use './vendor/variables' as vv;
 @use './themes/default';
 @use '@carbon/styles/scss/compat/themes' as compat;
 @use '@carbon/styles/scss/themes';
