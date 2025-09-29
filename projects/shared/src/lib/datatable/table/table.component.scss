@@ -76,3 +76,11 @@
 ::ng-deep div.cds--batch-summary {
   background-color: vv.$primary;
 }
+
+tr .edit-btn {
+  opacity: 0;
+}
+
+tr:hover .edit-btn {
+  opacity: 1;
+}
