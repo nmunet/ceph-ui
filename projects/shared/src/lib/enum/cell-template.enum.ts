@@ -79,5 +79,20 @@ export enum CellTemplate {
   //   ...
   //   cellTransformation: CellTemplate.copy,
   */
-  copy = 'copy'
+  copy = 'copy',
+  /*
+  This template will let you edit the cell value inline. You can pass the validators in the
+  customTemplateConfig.
+  // {
+  //    ...
+  //    cellTransformation: CellTemplate.editing,
+  //    customTemplateConfig: {
+  //       validators: [Validators.required]
+  //    }
+  //    ...
+  // }
+  Also need to pass forceIdentifer=true and also a unique identifier prop like
+  identifier="uid" to the table in some cases to avoid issues.
+  */
+  editing = 'editing'
 }

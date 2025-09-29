@@ -16,7 +16,7 @@ import {
   ViewChild
 } from '@angular/core';
 
-import { TableHeaderItem, TableItem, TableModel, TableRowSize, TableModule, ThemeModule, CheckboxModule, TagModule, PaginationModule } from 'carbon-components-angular';
+import { TableHeaderItem, TableItem, TableModel, TableRowSize, TableModule, ThemeModule, CheckboxModule, TagModule, PaginationModule, GridModule, InputModule } from 'carbon-components-angular';
 import _ from 'lodash';
 import { BehaviorSubject, Observable, of, Subject, Subscription } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
@@ -39,13 +39,15 @@ import { LayerModule } from 'carbon-components-angular/layer';
 import { NgIf, NgFor, NgClass, NgTemplateOutlet } from '@angular/common';
 import { ButtonModule } from 'carbon-components-angular/button';
 import { RouterLink } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IconModule } from 'carbon-components-angular/icon';
 import { SelectModule } from 'carbon-components-angular/select';
 import { DialogModule } from 'carbon-components-angular/dialog';
 import { SparklineComponent } from '../../components/sparkline/sparkline.component';
 import { NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
 import { Copy2ClipboardButtonComponent } from '../../components/copy2clipboard-button/copy2clipboard-button.component';
+import { CdFormGroup } from '../../forms';
+import { EditState } from '../../models/cd-table-editing';
 
 const TABLE_LIST_LIMIT = 10;
 type TPaginationInput = { page: number; size: number; filteredData: any[] };
@@ -77,6 +79,9 @@ type TPaginationOutput = { start: number; end: number };
         SparklineComponent,
         NgbTooltip,
         Copy2ClipboardButtonComponent,
+        GridModule,
+        InputModule,
+        ReactiveFormsModule
     ],
 })
 export class TableComponent implements AfterViewInit, OnInit, OnChanges, OnDestroy {
@@ -118,6 +123,8 @@ export class TableComponent implements AfterViewInit, OnInit, OnChanges, OnDestr
   rowDetailTpl: TemplateRef<any>;
   @ViewChild('tableActionTpl', { static: true })
   tableActionTpl: TemplateRef<any>;
+  @ViewChild('editingTpl', { static: true })
+  editingTpl: TemplateRef<any>;
 
   @ContentChild(TableDetailDirective) rowDetail!: TableDetailDirective;
   @ContentChild(TableActionsComponent) tableActions!: TableActionsComponent;
@@ -274,6 +281,12 @@ export class TableComponent implements AfterViewInit, OnInit, OnChanges, OnDestr
    */
   @Output() columnFiltersChanged = new EventEmitter<CdTableColumnFiltersChange>();
 
+  @Output()
+  editSubmitAction = new EventEmitter<{
+    state: { [field: string]: string };
+    row: any;
+  }>();
+
   /**
    * Use this variable to access the selected row(s).
    */
@@ -371,6 +384,10 @@ export class TableComponent implements AfterViewInit, OnInit, OnChanges, OnDestr
   } = {};
   search = '';
 
+  editingCells = new Set<string>();
+  editStates: EditState = {};
+  formGroup: CdFormGroup = new CdFormGroup({});
+
   set rows(value: any[]) {
     this._rows = value;
     this.doPagination({
@@ -409,6 +426,7 @@ export class TableComponent implements AfterViewInit, OnInit, OnChanges, OnDestr
       return filter.value !== undefined;
     });
   }
+  private previousRows = new Map<string | number, TableItem[]>();
 
   constructor(
     // private ngZone: NgZone,
@@ -475,43 +493,59 @@ export class TableComponent implements AfterViewInit, OnInit, OnChanges, OnDestr
       .subscribe({
         next: (values) => {
           const datasets: TableItem[][] = values.map((val) => {
-            return this.tableColumns.map((column: CdTableColumn, colIndex: number) => {
+            const rowId = val?.id ?? val?.[this.identifier];
+            const prevRow = this.previousRows.get(rowId);
+
+            const newRow: TableItem[] = this.tableColumns.map((column, colIndex) => {
               const rowValue = _.get(val, column?.prop);
 
               const pipeTransform = () =>
                 column?.prop ? column.pipe.transform(rowValue) : column.pipe.transform(val);
 
-              let tableItem = new TableItem({
-                selected: val,
-                data: {
-                  value: column.pipe ? pipeTransform() : rowValue,
-                  row: val,
-                  column: { ...column, ...val }
-                }
-              });
+              let existingCell: TableItem | undefined = prevRow?.[colIndex];
+              const oldValue = existingCell?.data?.value;
 
-              if (colIndex === 0) {
-                tableItem.data = { ...tableItem.data, row: val };
+              const newValue = column.pipe ? pipeTransform() : rowValue;
 
-                if (this.hasDetails) {
-                  tableItem.expandedData = val;
-                  tableItem.expandedTemplate = this.rowDetailTpl;
+              if (existingCell && !_.isEqual(oldValue, newValue)) {
+                // here i am updating value in place
+                existingCell.data.value = newValue;
+                existingCell.data.row = val;
+                existingCell.data.column = { ...column, ...val };
+
+                if (colIndex === 0 && this.hasDetails) {
+                  existingCell.expandedData = val;
+                  existingCell.expandedTemplate = this.rowDetailTpl;
                 }
               }
 
-              if (column.cellClass && _.isFunction(column.cellClass)) {
-                this.model.header[colIndex].className = column.cellClass({
-                  row: val,
-                  column,
-                  value: rowValue
-                });
-              }
-
-              tableItem.template = column.cellTemplate || this.defaultValueTpl;
-              return tableItem;
+              return (
+                existingCell ??
+                new TableItem({
+                  selected: val,
+                  data: {
+                    value: newValue,
+                    row: val,
+                    column: { ...column, ...val }
+                  },
+                  template: column.cellTemplate || this.defaultValueTpl,
+                  ...(colIndex === 0 && this.hasDetails
+                    ? { expandedData: val, expandedTemplate: this.rowDetailTpl }
+                    : {})
+                })
+              );
             });
+
+            this.previousRows.set(rowId, newRow);
+            return newRow;
           });
-          if (!_.isEqual(this.model.data, datasets)) {
+          // Only update  the data if actual row content changed
+          const prevRaw = this.model.data.map((row) => row?.[0]?.data?.row);
+          const newRaw = values;
+
+          const dataChanged = !_.isEqual(prevRaw, newRaw);
+
+          if (dataChanged || this.model.data.length !== datasets.length) {
             this.model.data = datasets;
           }
         }
@@ -595,9 +629,9 @@ export class TableComponent implements AfterViewInit, OnInit, OnChanges, OnDestr
     // this method was triggered by ngOnChanges().
     if (this.fetchData.observers.length > 0) {
       this.loadingIndicator = true;
-      const loadingSubscription = this.fetchData.subscribe(() => {
-        this.loadingIndicator = false;
-        this.cdRef.detectChanges();
+      const loadingSubscription = this.fetchData.subscribe({
+        next: () => this.cdRef.detectChanges(),
+        complete: () => (this.loadingIndicator = false)
       });
       this._subscriptions.add(loadingSubscription);
     }
@@ -839,6 +873,7 @@ export class TableComponent implements AfterViewInit, OnInit, OnChanges, OnDestr
     this.cellTemplates.path = this.pathTpl;
     this.cellTemplates.tooltip = this.tooltipTpl;
     this.cellTemplates.copy = this.copyTpl;
+    this.cellTemplates.editing = this.editingTpl;
   }
 
   useCustomClass(value: any): string {
@@ -1368,5 +1403,37 @@ export class TableComponent implements AfterViewInit, OnInit, OnChanges, OnDestr
       this.selectAllCheckbox = true;
       this.selectAllCheckboxSomeSelected = false;
     }
+  }
+
+  editCellItem(rowId: string, column: CdTableColumn, value: string) {
+    const key = `${rowId}-${column.prop}`;
+    this.formGroup.addControl(key, new FormControl('', column.customTemplateConfig?.validators));
+    this.editingCells.add(key);
+    if (!this.editStates[rowId]) {
+      this.editStates[rowId] = {};
+    }
+    this.formGroup?.get(key).setValue(value);
+    this.editStates[rowId][column.prop] = value;
+  }
+
+  saveCellItem(row: any, colProp: string) {
+    if (this.formGroup?.invalid) {
+      this.formGroup.setErrors({ cdSubmitButton: true });
+      return;
+    }
+    this.editSubmitAction.emit({
+      state: { ...this.editStates[row[this.identifier]] },
+      row: row
+    });
+    this.editingCells.delete(`${row[this.identifier]}-${colProp}`);
+    delete this.editStates[row[this.identifier]][colProp];
+  }
+
+  isCellEditing(row: string, colProp: string): boolean {
+    return this.editingCells.has(`${row}-${colProp}`);
+  }
+
+  valueChange(rowId: string, colProp: string, value: string) {
+    this.editStates[rowId][colProp] = value;
   }
 }
