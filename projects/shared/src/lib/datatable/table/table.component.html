@@ -437,7 +437,8 @@
                 id="cell-inline-save-btn"
                 type="button"
                 (click)="saveCellItem(row, column?.prop)">
-          <cd-icon type="check"></cd-icon>
+          <svg cdsIcon="checkmark"
+                size="16"></svg>
         </button>
       </div>
     </div>
@@ -455,7 +456,8 @@
               size="sm"
               id="cell-inline-edit-btn"
               (click)="editCellItem(row[identifier], column, value)">
-        <cd-icon type="edit"></cd-icon>
+        <svg cdsIcon="edit"
+              size="16"></svg>
       </button>
     </div>
   </div>
