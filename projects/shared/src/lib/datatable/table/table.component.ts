@@ -129,8 +129,15 @@ export class TableComponent implements AfterViewInit, OnInit, OnChanges, OnDestr
   @ContentChild(TableDetailDirective) rowDetail!: TableDetailDirective;
   @ContentChild(TableActionsComponent) tableActions!: TableActionsComponent;
 
+  private _headerTitle: string | TemplateRef<any>;
+  isHeaderTitleString = false;
+
   @Input()
-  headerTitle: string;
+  set headerTitle(value: string | TemplateRef<any>) {
+    this._headerTitle = value;
+    this.isHeaderTitleString = typeof value === 'string';
+  }
+
   @Input()
   headerDescription: string;
   // This is the array with the items to be shown.
@@ -320,6 +327,10 @@ export class TableComponent implements AfterViewInit, OnInit, OnChanges, OnDestr
 
   get enableSingleSelect() {
     return this.selectionType === 'single';
+  }
+
+  get headerTitle(): string | TemplateRef<any> {
+    return this._headerTitle;
   }
 
   /**
