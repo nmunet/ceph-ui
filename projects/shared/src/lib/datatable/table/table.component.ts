@@ -36,7 +36,7 @@ import { TableDetailDirective } from '../directives/table-detail.directive';
 import { CdSortDirection } from '../../enum/cd-sort-direction';
 import { CdSortPropDir } from '../../models/cd-sort-prop-dir';
 import { LayerModule } from 'carbon-components-angular/layer';
-import { NgIf, NgFor, NgClass, NgTemplateOutlet } from '@angular/common';
+import { NgIf, NgFor, NgClass, NgTemplateOutlet, CommonModule } from '@angular/common';
 import { ButtonModule } from 'carbon-components-angular/button';
 import { RouterLink } from '@angular/router';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -81,7 +81,8 @@ type TPaginationOutput = { start: number; end: number };
         Copy2ClipboardButtonComponent,
         GridModule,
         InputModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        CommonModule
     ],
 })
 export class TableComponent implements AfterViewInit, OnInit, OnChanges, OnDestroy {
