@@ -48,6 +48,7 @@ import { NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
 import { Copy2ClipboardButtonComponent } from '../../components/copy2clipboard-button/copy2clipboard-button.component';
 import { CdFormGroup } from '../../forms';
 import { EditState } from '../../models/cd-table-editing';
+import { RedirectLinkResolverPipe } from '../../pipes/redirect-link-resolver.pipe';
 
 const TABLE_LIST_LIMIT = 10;
 type TPaginationInput = { page: number; size: number; filteredData: any[] };
@@ -82,7 +83,8 @@ type TPaginationOutput = { start: number; end: number };
         GridModule,
         InputModule,
         ReactiveFormsModule,
-        CommonModule
+        CommonModule,
+        RedirectLinkResolverPipe
     ],
 })
 export class TableComponent implements AfterViewInit, OnInit, OnChanges, OnDestroy {
