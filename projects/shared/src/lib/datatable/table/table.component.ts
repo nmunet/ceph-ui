@@ -1235,7 +1235,8 @@ export class TableComponent implements AfterViewInit, OnInit, OnChanges, OnDestr
     this.userConfig.sorts = sorts;
     if (this.serverSide) {
       this.userConfig.offset = 0;
-      this.reloadData();
+      this.loadingIndicator = true;
+      this.debouncedSearch();
     }
 
     this.doSorting(columnIndex);
