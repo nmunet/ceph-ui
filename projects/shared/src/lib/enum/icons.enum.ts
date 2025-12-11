@@ -7,7 +7,7 @@ export enum Icons {
   destroy = 'close', // Destroy, Remove, Delete
   destroyCircle = 'fa fa-times-circle', // Destroy, Remove, Delete
   exchange = 'fa fa-exchange', // Edit-Peer
-  copy = 'fa fa-copy', // Copy
+  copy = 'copy', // Copy
   clipboard = 'fa fa-clipboard', // Clipboard
   flatten = 'fa fa-chain-broken', // Flatten, Link broken, Mark Lost
   trash = 'fa fa-trash-o', // Move to trash
