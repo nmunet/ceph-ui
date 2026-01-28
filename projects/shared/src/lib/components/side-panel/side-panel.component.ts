@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ButtonModule, IconModule, PanelModule } from 'carbon-components-angular';
+import { ButtonModule, IconModule, LayerModule, PanelModule, ThemeModule } from 'carbon-components-angular';
 
 @Component({
   selector: 'cd-side-panel',
@@ -11,14 +11,18 @@ import { ButtonModule, IconModule, PanelModule } from 'carbon-components-angular
     PanelModule,
     ButtonModule,
     IconModule,
-    CommonModule
+    CommonModule,
+    LayerModule,
+    ThemeModule
   ]
 })
 export class SidePanelComponent {
   @Input() expanded = false;
   @Input() headerText = '';
   @Input() overlay = true;
-  @Input() size: 'sm' | 'md' | 'lg' | 'xl' | '2xl' = 'lg';
+   @Input() size: 'sm' | 'md' | 'lg' | 'xl' | '2xl' = 'lg';
+  @Input() layer: number;
+  @Input() theme: string;
 
   @Output() closed = new EventEmitter<void>();
 
