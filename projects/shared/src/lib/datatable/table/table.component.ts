@@ -16,7 +16,7 @@ import {
   ViewChild
 } from '@angular/core';
 
-import { TableHeaderItem, TableItem, TableModel, TableRowSize, TableModule, ThemeModule, CheckboxModule, TagModule, PaginationModule, GridModule, InputModule } from 'carbon-components-angular';
+import { TableHeaderItem, TableItem, TableModel, TableRowSize, TableModule, ThemeModule, CheckboxModule, TagModule, PaginationModule, GridModule, InputModule, LayoutModule } from 'carbon-components-angular';
 import _ from 'lodash';
 import { BehaviorSubject, Observable, of, Subject, Subscription } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
@@ -84,7 +84,8 @@ type TPaginationOutput = { start: number; end: number };
         InputModule,
         ReactiveFormsModule,
         CommonModule,
-        RedirectLinkResolverPipe
+        RedirectLinkResolverPipe,
+        LayoutModule
     ],
 })
 export class TableComponent implements AfterViewInit, OnInit, OnChanges, OnDestroy {
@@ -256,6 +257,24 @@ export class TableComponent implements AfterViewInit, OnInit, OnChanges, OnDestr
    */
   @Input()
   theme: string;
+
+  /**
+   * Title to be displayed when there is no data
+   */
+  @Input()
+  emptyStateTitle: string = 'No data available';
+
+  /**
+   * Helper text to be displayed when there is no data
+   */
+  @Input()
+  emptyStateMessage: string = 'There are currently no records to display.';
+
+  /**
+   * Icon to be displayed when there is no data
+   */
+  @Input()
+  emptyStateIcon: string = 'deploy';
 
   /**
    * Should be a function to update the input data if undefined nothing will be triggered
