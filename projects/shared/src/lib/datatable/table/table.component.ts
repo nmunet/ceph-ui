@@ -49,7 +49,7 @@ import { Copy2ClipboardButtonComponent } from '../../components/copy2clipboard-b
 import { CdFormGroup } from '../../forms';
 import { EditState } from '../../models/cd-table-editing';
 import { RedirectLinkResolverPipe } from '../../pipes/redirect-link-resolver.pipe';
-import { HelpTextComponent } from '~/components/help-text/help-text.component';
+import { HelpTextComponent } from '../../components/help-text/help-text.component';
 
 const TABLE_LIST_LIMIT = 10;
 type TPaginationInput = { page: number; size: number; filteredData: any[] };
