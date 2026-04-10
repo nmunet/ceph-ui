@@ -164,96 +164,96 @@ export class ActionLabelsI18n {
   VIEW: string;
   constructor() {
     /* Create a new item */
-    this.CREATE = $localize`Create`;
+    this.CREATE = `Create`;
 
-    this.EXPORT = $localize`Export`;
+    this.EXPORT = `Export`;
 
-    this.IMPORT = $localize`Import`;
+    this.IMPORT = `Import`;
 
-    this.SETUP_MULTISITE_REPLICATION = $localize`Setup Multi-site Replication`;
+    this.SETUP_MULTISITE_REPLICATION = `Setup Multi-site Replication`;
 
-    this.MIGRATE = $localize`Migrate`;
+    this.MIGRATE = `Migrate`;
 
     /* Destroy an existing item */
-    this.DELETE = $localize`Delete`;
+    this.DELETE = `Delete`;
 
     /* Add an existing item to a container */
-    this.ADD = $localize`Add`;
-    this.SET = $localize`Set`;
-    this.SUBMIT = $localize`Submit`;
+    this.ADD = `Add`;
+    this.SET = `Set`;
+    this.SUBMIT = `Submit`;
 
     /* Remove an item from a container WITHOUT deleting it */
-    this.REMOVE = $localize`Remove`;
-    this.UNSET = $localize`Unset`;
+    this.REMOVE = `Remove`;
+    this.UNSET = `Unset`;
 
     /* Make changes to an existing item */
-    this.EDIT = $localize`Edit`;
-    this.UPDATE = $localize`Update`;
-    this.CANCEL = $localize`Cancel`;
-    this.PREVIEW = $localize`Preview`;
-    this.MOVE = $localize`Move`;
+    this.EDIT = `Edit`;
+    this.UPDATE = `Update`;
+    this.CANCEL = `Cancel`;
+    this.PREVIEW = `Preview`;
+    this.MOVE = `Move`;
 
     /* Wizard wording */
-    this.NEXT = $localize`Next`;
-    this.BACK = $localize`Back`;
+    this.NEXT = `Next`;
+    this.BACK = `Back`;
 
     /* Non-standard actions */
-    this.CLONE = $localize`Clone`;
-    this.COPY = $localize`Copy`;
-    this.DEEP_SCRUB = $localize`Deep Scrub`;
-    this.DESTROY = $localize`Destroy`;
-    this.EVICT = $localize`Evict`;
-    this.FLATTEN = $localize`Flatten`;
-    this.MARK_DOWN = $localize`Mark Down`;
-    this.MARK_IN = $localize`Mark In`;
-    this.MARK_LOST = $localize`Mark Lost`;
-    this.MARK_OUT = $localize`Mark Out`;
-    this.PROTECT = $localize`Protect`;
-    this.PURGE = $localize`Purge`;
-    this.RENAME = $localize`Rename`;
-    this.RESTORE = $localize`Restore`;
-    this.REWEIGHT = $localize`Reweight`;
-    this.ROLLBACK = $localize`Rollback`;
-    this.SCRUB = $localize`Scrub`;
-    this.SHOW = $localize`Show`;
-    this.TIERING = $localize`Tiering`;
-    this.TRASH = $localize`Move to Trash`;
-    this.UNPROTECT = $localize`Unprotect`;
-    this.CHANGE = $localize`Change`;
-    this.FLAGS = $localize`Flags`;
-    this.ENTER_MAINTENANCE = $localize`Enter Maintenance`;
-    this.EXIT_MAINTENANCE = $localize`Exit Maintenance`;
-    this.AUTHORIZE = $localize`Authorize`;
+    this.CLONE = `Clone`;
+    this.COPY = `Copy`;
+    this.DEEP_SCRUB = `Deep Scrub`;
+    this.DESTROY = `Destroy`;
+    this.EVICT = `Evict`;
+    this.FLATTEN = `Flatten`;
+    this.MARK_DOWN = `Mark Down`;
+    this.MARK_IN = `Mark In`;
+    this.MARK_LOST = `Mark Lost`;
+    this.MARK_OUT = `Mark Out`;
+    this.PROTECT = `Protect`;
+    this.PURGE = `Purge`;
+    this.RENAME = `Rename`;
+    this.RESTORE = `Restore`;
+    this.REWEIGHT = `Reweight`;
+    this.ROLLBACK = `Rollback`;
+    this.SCRUB = `Scrub`;
+    this.SHOW = `Show`;
+    this.TIERING = `Tiering`;
+    this.TRASH = `Move to Trash`;
+    this.UNPROTECT = `Unprotect`;
+    this.CHANGE = `Change`;
+    this.FLAGS = `Flags`;
+    this.ENTER_MAINTENANCE = `Enter Maintenance`;
+    this.EXIT_MAINTENANCE = `Exit Maintenance`;
+    this.AUTHORIZE = `Authorize`;
 
-    this.START_DRAIN = $localize`Start Drain`;
-    this.STOP_DRAIN = $localize`Stop Drain`;
-    this.RESYNC = $localize`Resync`;
+    this.START_DRAIN = `Start Drain`;
+    this.STOP_DRAIN = `Stop Drain`;
+    this.RESYNC = `Resync`;
     /* Prometheus wording */
-    this.RECREATE = $localize`Recreate`;
-    this.EXPIRE = $localize`Expire`;
+    this.RECREATE = `Recreate`;
+    this.EXPIRE = `Expire`;
 
-    this.START = $localize`Start`;
-    this.STOP = $localize`Stop`;
-    this.REDEPLOY = $localize`Redeploy`;
-    this.RESTART = $localize`Restart`;
+    this.START = `Start`;
+    this.STOP = `Stop`;
+    this.REDEPLOY = `Redeploy`;
+    this.RESTART = `Restart`;
 
-    this.REMOVE_SCHEDULING = $localize`Remove Scheduling`;
-    this.PROMOTE = $localize`Promote`;
-    this.DEMOTE = $localize`Demote`;
+    this.REMOVE_SCHEDULING = `Remove Scheduling`;
+    this.PROMOTE = `Promote`;
+    this.DEMOTE = `Demote`;
 
-    this.START_UPGRADE = $localize`Start Upgrade`;
+    this.START_UPGRADE = `Start Upgrade`;
 
-    this.ACTIVATE = $localize`Activate`;
-    this.DEACTIVATE = $localize`Deactivate`;
+    this.ACTIVATE = `Activate`;
+    this.DEACTIVATE = `Deactivate`;
 
-    this.ATTACH = $localize`Attach`;
-    this.CONNECT = $localize`Connect`;
-    this.DISCONNECT = $localize`Disconnect`;
-    this.RECONNECT = $localize`Reconnect`;
-    this.ADD_STORAGE = $localize`Add Storage`;
+    this.ATTACH = `Attach`;
+    this.CONNECT = `Connect`;
+    this.DISCONNECT = `Disconnect`;
+    this.RECONNECT = `Reconnect`;
+    this.ADD_STORAGE = `Add Storage`;
 
-    this.NFS_EXPORT = $localize`Create NFS Export`;
-    this.VIEW = $localize`View`;
+    this.NFS_EXPORT = `Create NFS Export`;
+    this.VIEW = `View`;
   }
 }
 
@@ -304,53 +304,53 @@ export class SucceededActionLabelsI18n {
 
   constructor() {
     /* Create a new item */
-    this.CREATED = $localize`Created`;
+    this.CREATED = `Created`;
 
     /* Destroy an existing item */
-    this.DELETED = $localize`Deleted`;
+    this.DELETED = `Deleted`;
 
     /* Add an existing item to a container */
-    this.ADDED = $localize`Added`;
+    this.ADDED = `Added`;
 
     /* Remove an item from a container WITHOUT deleting it */
-    this.REMOVED = $localize`Removed`;
+    this.REMOVED = `Removed`;
 
     /* Make changes to an existing item */
-    this.EDITED = $localize`Edited`;
-    this.CANCELED = $localize`Canceled`;
-    this.PREVIEWED = $localize`Previewed`;
-    this.MOVED = $localize`Moved`;
+    this.EDITED = `Edited`;
+    this.CANCELED = `Canceled`;
+    this.PREVIEWED = `Previewed`;
+    this.MOVED = `Moved`;
 
     /* Non-standard actions */
-    this.CLONED = $localize`Cloned`;
-    this.COPIED = $localize`Copied`;
-    this.DEEP_SCRUBBED = $localize`Deep Scrubbed`;
-    this.DESTROYED = $localize`Destroyed`;
-    this.FLATTENED = $localize`Flattened`;
-    this.MARKED_DOWN = $localize`Marked Down`;
-    this.MARKED_IN = $localize`Marked In`;
-    this.MARKED_LOST = $localize`Marked Lost`;
-    this.MARKED_OUT = $localize`Marked Out`;
-    this.PROTECTED = $localize`Protected`;
-    this.PURGED = $localize`Purged`;
-    this.RENAMED = $localize`Renamed`;
-    this.RESTORED = $localize`Restored`;
-    this.REWEIGHTED = $localize`Reweighted`;
-    this.ROLLED_BACK = $localize`Rolled back`;
-    this.SCRUBBED = $localize`Scrubbed`;
-    this.SHOWED = $localize`Showed`;
-    this.TRASHED = $localize`Moved to Trash`;
-    this.UNPROTECTED = $localize`Unprotected`;
-    this.CHANGE = $localize`Change`;
+    this.CLONED = `Cloned`;
+    this.COPIED = `Copied`;
+    this.DEEP_SCRUBBED = `Deep Scrubbed`;
+    this.DESTROYED = `Destroyed`;
+    this.FLATTENED = `Flattened`;
+    this.MARKED_DOWN = `Marked Down`;
+    this.MARKED_IN = `Marked In`;
+    this.MARKED_LOST = `Marked Lost`;
+    this.MARKED_OUT = `Marked Out`;
+    this.PROTECTED = `Protected`;
+    this.PURGED = `Purged`;
+    this.RENAMED = `Renamed`;
+    this.RESTORED = `Restored`;
+    this.REWEIGHTED = `Reweighted`;
+    this.ROLLED_BACK = `Rolled back`;
+    this.SCRUBBED = `Scrubbed`;
+    this.SHOWED = `Showed`;
+    this.TRASHED = `Moved to Trash`;
+    this.UNPROTECTED = `Unprotected`;
+    this.CHANGE = `Change`;
 
     /* Prometheus wording */
-    this.RECREATED = $localize`Recreated`;
-    this.EXPIRED = $localize`Expired`;
+    this.RECREATED = `Recreated`;
+    this.EXPIRED = `Expired`;
 
-    this.START = $localize`Start`;
-    this.STOP = $localize`Stop`;
-    this.REDEPLOY = $localize`Redeploy`;
-    this.RESTART = $localize`Restart`;
+    this.START = `Start`;
+    this.STOP = `Stop`;
+    this.REDEPLOY = `Redeploy`;
+    this.RESTART = `Restart`;
   }
 }
 
@@ -385,6 +385,6 @@ export const USER = 'user';
 export const VERSION_PREFIX = 'ceph version';
 
 export const CEPHFS_MIRRORING_PAGE_HEADER = {
-  title: $localize`CephFS Mirroring`,
-  description: $localize`Centralised view of all CephFS Mirroring relationships.`
+  title: `CephFS Mirroring`,
+  description: `Centralised view of all CephFS Mirroring relationships.`
 };
