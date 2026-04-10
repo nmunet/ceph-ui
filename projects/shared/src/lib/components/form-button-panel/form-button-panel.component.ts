@@ -5,8 +5,8 @@ import { UntypedFormGroup, NgForm } from '@angular/forms';
 import { SubmitButtonComponent } from '../submit-button/submit-button.component';
 import { ModalCdsService } from '../../services/modal-cds.service';
 import { ActivatedRoute } from '@angular/router';
-import { ActionLabelsI18n } from '~/constants/app.constants';
-import { ModalService } from '~/services/modal.service';
+import { ActionLabelsI18n } from '../../constants/app.constants';
+import { ModalService } from '../../services/modal.service';
 import { BackButtonComponent } from '../back-button/back-button.component';
 import { ModalModule } from 'carbon-components-angular';
 

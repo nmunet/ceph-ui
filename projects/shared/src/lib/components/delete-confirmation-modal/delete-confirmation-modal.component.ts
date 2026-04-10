@@ -7,8 +7,8 @@ import { SubmitButtonComponent } from '../submit-button/submit-button.component'
 import { BaseModal, CheckboxModule, InputModule, ModalModule } from 'carbon-components-angular';
 import { CdValidators } from '../../forms/cd-validators';
 import { DeleteConfirmationBodyContext } from '~/models/delete-confirmation.model';
-import { DeletionImpact } from '~/enum/delete-confirmation-modal-impact.enum';
-import { CdFormGroup } from '~/forms';
+import { DeletionImpact } from '../../enum/delete-confirmation-modal-impact.enum';
+import { CdFormGroup } from '../../forms';
 import { CommonModule } from '@angular/common';
 import { AlertPanelComponent } from '../alert-panel/alert-panel.component';
 import { FormButtonPanelComponent } from '../form-button-panel/form-button-panel.component';
