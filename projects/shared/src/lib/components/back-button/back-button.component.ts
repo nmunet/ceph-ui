@@ -2,7 +2,7 @@ import { CommonModule, Location } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ButtonModule } from 'carbon-components-angular';
-import { ActionLabelsI18n } from '~/constants/app.constants';
+import { ActionLabelsI18n } from '../../constants/app.constants';
 
 @Component({
   selector: 'cd-back-button',

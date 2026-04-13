@@ -4,7 +4,7 @@ import { AbstractControl, UntypedFormGroup, FormGroupDirective, NgForm } from '@
 import { ButtonModule, LoadingModule } from 'carbon-components-angular';
 
 import _ from 'lodash';
-import { Icons } from '~/enum/icons.enum';
+import { Icons } from '../../enum/icons.enum';
 
 
 /**
