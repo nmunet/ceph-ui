@@ -453,14 +453,24 @@
       <div cdsCol
            [columnNumbers]="{sm:1}"
            class="cds-p-0 cds-pt-3">
-        <button cdsButton="ghost"
-                size="sm"
-                id="cell-inline-save-btn"
-                type="button"
-                (click)="saveCellItem(row, column?.prop)">
+        <div cdsRow>
+        <cds-icon-button kind="tertiary"
+                         size="sm"
+                         id="cell-inline-save-btn"
+                         type="button"
+                         (click)="saveCellItem(row, column?.prop)">
           <svg cdsIcon="checkmark"
                 size="16"></svg>
-        </button>
+        </cds-icon-button>
+        <cds-icon-button kind="ghost"
+                         size="sm"
+                         id="cell-inline-cancel-btn"
+                         type="button"
+                         (click)="cancelCellEdit(row[identifier], column?.prop)">
+          <svg cdsIcon="close"
+                size="16"></svg>
+        </cds-icon-button>
+        </div>
       </div>
     </div>
   </form>
@@ -473,13 +483,13 @@
     <div cdsCol
          [columnNumbers]="{lg: 5}"
          class="edit-btn">
-      <button cdsButton="ghost"
-              size="sm"
-              id="cell-inline-edit-btn"
-              (click)="editCellItem(row[identifier], column, value)">
+      <cds-icon-button kind="ghost"
+                       size="sm"
+                       id="cell-inline-edit-btn"
+                       (click)="editCellItem(row[identifier], column, value)">
         <svg cdsIcon="edit"
               size="16"></svg>
-      </button>
+      </cds-icon-button>
     </div>
   </div>
   }

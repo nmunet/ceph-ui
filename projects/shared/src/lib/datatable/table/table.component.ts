@@ -290,6 +290,9 @@ export class TableComponent implements AfterViewInit, OnInit, OnChanges, OnDestr
   @Output()
   fetchData = new EventEmitter<CdTableFetchDataContext>();
 
+  @Output()
+  isCellEditingEvent = new EventEmitter<boolean>();
+
   /**
    * This should be defined if you need access to the selection object.
    *
@@ -1468,6 +1471,7 @@ export class TableComponent implements AfterViewInit, OnInit, OnChanges, OnDestr
     }
     this.formGroup?.get(key).setValue(value);
     this.editStates[rowId][column.prop] = value;
+    this.isCellEditingEvent.emit(true);
   }
 
   saveCellItem(row: any, colProp: string) {
@@ -1493,5 +1497,28 @@ export class TableComponent implements AfterViewInit, OnInit, OnChanges, OnDestr
 
   valueChange(rowId: string, colProp: string, value: string) {
     this.editStates[rowId][colProp] = value;
+  }
+
+  cancelCellEdit(rowId: string, colProp: string, event?: Event) {
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    const key = `${rowId}-${colProp}`;
+    if (!this.formGroup.controls[key]) {
+      return;
+    }
+
+    if (this.editStates[rowId]) {
+      delete this.editStates[rowId][colProp];
+    }
+    this.editingCells.clear();
+    this.isCellEditingEvent.emit(false);
+
+    setTimeout(() => {
+      if (this.formGroup.controls[key]) {
+        this.formGroup.removeControl(key);
+      }
+    }, 0);
   }
 }
