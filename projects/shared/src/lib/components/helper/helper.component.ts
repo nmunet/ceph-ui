@@ -5,16 +5,15 @@ import { IconModule, PopoverModule, TooltipModule } from 'carbon-components-angu
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'cd-helper',
-  templateUrl: './helper.component.html',
-  styleUrls: ['./helper.component.scss'],
-  standalone: true,
-  imports: [
-    TooltipModule,
-    PopoverModule,
-    IconModule,
-    CommonModule
-  ] 
+    selector: 'cd-helper',
+    templateUrl: './helper.component.html',
+    styleUrls: ['./helper.component.scss'],
+    imports: [
+        TooltipModule,
+        PopoverModule,
+        IconModule,
+        CommonModule
+    ]
 })
 export class HelperComponent {
   icons = Icons;

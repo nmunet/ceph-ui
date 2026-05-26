@@ -26,11 +26,10 @@ import { Icons } from '../../enum/icons.enum';
  * @implements {OnInit}
  */
 @Component({
-  selector: 'cd-submit-button',
-  templateUrl: './submit-button.component.html',
-  styleUrls: ['./submit-button.component.scss'],
-  standalone: true,
-  imports: [LoadingModule, ButtonModule, CommonModule]
+    selector: 'cd-submit-button',
+    templateUrl: './submit-button.component.html',
+    styleUrls: ['./submit-button.component.scss'],
+    imports: [LoadingModule, ButtonModule, CommonModule]
 })
 export class SubmitButtonComponent implements OnInit {
   @Input()

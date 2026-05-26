@@ -20,7 +20,6 @@ const CLIPBOARD_SUCCESS_MESSAGE = `Copied text to the clipboard successfully.`;
     selector: 'cd-copy-2-clipboard-button',
     templateUrl: './copy2clipboard-button.component.html',
     styleUrls: ['./copy2clipboard-button.component.scss'],
-    standalone: true,
     imports: [
         NgIf,
         NgClass,
@@ -29,7 +28,7 @@ const CLIPBOARD_SUCCESS_MESSAGE = `Copied text to the clipboard successfully.`;
         LayoutModule
     ],
     providers: [
-      CdDatePipe
+        CdDatePipe
     ]
 })
 export class Copy2ClipboardButtonComponent {

@@ -13,11 +13,10 @@ import { Icons } from '../../enum/icons.enum';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'cd-alert-panel',
-  templateUrl: './alert-panel.component.html',
-  styleUrls: ['./alert-panel.component.scss'],
-  standalone: true,
-  imports: [NotificationModule, ButtonModule, CommonModule]
+    selector: 'cd-alert-panel',
+    templateUrl: './alert-panel.component.html',
+    styleUrls: ['./alert-panel.component.scss'],
+    imports: [NotificationModule, ButtonModule, CommonModule]
 })
 export class AlertPanelComponent implements OnInit {
   @ViewChild('content', { static: true })

@@ -5,11 +5,10 @@ import { ButtonModule } from 'carbon-components-angular';
 import { ActionLabelsI18n } from '../../constants/app.constants';
 
 @Component({
-  selector: 'cd-back-button',
-  templateUrl: './back-button.component.html',
-  styleUrls: ['./back-button.component.scss'],
-  standalone: true,
-  imports: [CommonModule, ButtonModule]
+    selector: 'cd-back-button',
+    templateUrl: './back-button.component.html',
+    styleUrls: ['./back-button.component.scss'],
+    imports: [CommonModule, ButtonModule]
 })
 export class BackButtonComponent implements OnInit {
   @Output() backAction = new EventEmitter();

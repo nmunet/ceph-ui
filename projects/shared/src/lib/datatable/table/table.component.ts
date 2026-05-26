@@ -60,7 +60,6 @@ type TPaginationOutput = { start: number; end: number };
     templateUrl: './table.component.html',
     styleUrls: ['./table.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: true,
     imports: [
         TableModule,
         LayerModule,
@@ -88,7 +87,7 @@ type TPaginationOutput = { start: number; end: number };
         RedirectLinkResolverPipe,
         LayoutModule,
         HelpTextComponent
-    ],
+    ]
 })
 export class TableComponent implements AfterViewInit, OnInit, OnChanges, OnDestroy {
   @ViewChild('tableCellBoldTpl', { static: true })

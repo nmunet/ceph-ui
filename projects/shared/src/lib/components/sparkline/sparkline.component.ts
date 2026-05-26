@@ -17,8 +17,7 @@ import { NgStyle } from '@angular/common';
     selector: 'cd-sparkline',
     templateUrl: './sparkline.component.html',
     styleUrls: ['./sparkline.component.scss'],
-    standalone: true,
-    imports: [NgStyle, BaseChartDirective],
+    imports: [NgStyle, BaseChartDirective]
 })
 export class SparklineComponent implements OnInit, OnChanges {
   @ViewChild('sparkCanvas', { static: true })
