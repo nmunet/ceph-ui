@@ -11,11 +11,10 @@ import { BackButtonComponent } from '../back-button/back-button.component';
 import { ModalModule } from 'carbon-components-angular';
 
 @Component({
-  selector: 'cd-form-button-panel',
-  templateUrl: './form-button-panel.component.html',
-  styleUrls: ['./form-button-panel.component.scss'],
-  standalone: true,
-  imports: [BackButtonComponent, SubmitButtonComponent, CommonModule, ModalModule]
+    selector: 'cd-form-button-panel',
+    templateUrl: './form-button-panel.component.html',
+    styleUrls: ['./form-button-panel.component.scss'],
+    imports: [BackButtonComponent, SubmitButtonComponent, CommonModule, ModalModule]
 })
 export class FormButtonPanelComponent implements OnInit {
   @ViewChild(SubmitButtonComponent)

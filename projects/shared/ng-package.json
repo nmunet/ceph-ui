@@ -3,7 +3,7 @@
   "dest": "../../dist/shared",
   "lib": {
     "entryFile": "src/public-api.ts",
-    "styleIncludePaths": ["./styles"]
+    "styleIncludePaths": ["./styles", "../../node_modules"]
   },
   "assets": [{ "input": "./styles", "glob": "**/*.scss", "output": "styles" }],
   "allowedNonPeerDependencies": [

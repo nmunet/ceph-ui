@@ -3,11 +3,10 @@ import { Icons } from '../../enum/icons.enum';
 import { ButtonModule, IconModule, LayoutModule } from 'carbon-components-angular';
 
 @Component({
-  selector: 'cd-inline-message',
-  templateUrl: './inline-message.component.html',
-  styleUrl: './inline-message.component.scss',
-  standalone: true,
-  imports: [ButtonModule, LayoutModule, IconModule]
+    selector: 'cd-inline-message',
+    templateUrl: './inline-message.component.html',
+    styleUrl: './inline-message.component.scss',
+    imports: [ButtonModule, LayoutModule, IconModule]
 })
 export class InlineMessageComponent {
   // collapsible when true will show read more/read less button

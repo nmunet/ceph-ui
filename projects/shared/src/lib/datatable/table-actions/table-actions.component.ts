@@ -16,7 +16,6 @@ import { DialogModule } from 'carbon-components-angular/dialog';
     selector: 'cd-table-actions',
     templateUrl: './table-actions.component.html',
     styleUrls: ['./table-actions.component.scss'],
-    standalone: true,
     imports: [
         NgIf,
         ButtonModule,
@@ -24,7 +23,7 @@ import { DialogModule } from 'carbon-components-angular/dialog';
         IconModule,
         DialogModule,
         NgFor,
-    ],
+    ]
 })
 export class TableActionsComponent implements OnChanges, OnInit {
   @Input()

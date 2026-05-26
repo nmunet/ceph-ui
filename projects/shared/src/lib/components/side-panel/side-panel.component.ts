@@ -3,18 +3,17 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ButtonModule, IconModule, LayerModule, PanelModule, ThemeModule } from 'carbon-components-angular';
 
 @Component({
-  selector: 'cd-side-panel',
-  templateUrl: './side-panel.component.html',
-  styleUrl: './side-panel.component.scss',
-  standalone: true,
-  imports: [
-    PanelModule,
-    ButtonModule,
-    IconModule,
-    CommonModule,
-    LayerModule,
-    ThemeModule
-  ]
+    selector: 'cd-side-panel',
+    templateUrl: './side-panel.component.html',
+    styleUrl: './side-panel.component.scss',
+    imports: [
+        PanelModule,
+        ButtonModule,
+        IconModule,
+        CommonModule,
+        LayerModule,
+        ThemeModule
+    ]
 })
 export class SidePanelComponent {
   @Input() expanded = false;

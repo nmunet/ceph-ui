@@ -14,12 +14,10 @@ import { AlertPanelComponent } from '../alert-panel/alert-panel.component';
 import { FormButtonPanelComponent } from '../form-button-panel/form-button-panel.component';
 
 @Component({
-  selector: 'cd-deletion-modal',
-  templateUrl: './delete-confirmation-modal.component.html',
-  styleUrls: ['./delete-confirmation-modal.component.scss'],
-  standalone: true,
-  imports: [CommonModule, ModalModule, FormsModule, ReactiveFormsModule, AlertPanelComponent, CheckboxModule, InputModule, FormButtonPanelComponent]
-
+    selector: 'cd-deletion-modal',
+    templateUrl: './delete-confirmation-modal.component.html',
+    styleUrls: ['./delete-confirmation-modal.component.scss'],
+    imports: [CommonModule, ModalModule, FormsModule, ReactiveFormsModule, AlertPanelComponent, CheckboxModule, InputModule, FormButtonPanelComponent]
 })
 export class DeleteConfirmationModalComponent extends BaseModal implements OnInit {
   @ViewChild(SubmitButtonComponent, { static: true })
