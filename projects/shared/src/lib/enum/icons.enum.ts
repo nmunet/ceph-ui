@@ -102,3 +102,7 @@ export enum Icons {
   spin = 'fa fa-spin', //  To get any icon to rotate
   inverse = 'fa fa-inverse' // To get an alternative icon color
 }
+
+export const EMPTY_STATE_IMAGE = {
+  default: '../../../assets/empty-state.png',
+} as const;
