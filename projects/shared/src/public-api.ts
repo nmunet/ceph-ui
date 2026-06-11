@@ -12,6 +12,7 @@ export * from './lib/components/details-card/details-card.component';
 export * from './lib/components/helper/helper.component';
 export * from './lib/components/help-text/help-text.component';
 export * from './lib/components/copy2clipboard-button/copy2clipboard-button.component';
+export * from './lib/components/confirmation-modal/confirmation-modal.component';
 export * from './lib/components/delete-confirmation-modal/delete-confirmation-modal.component';
 export * from './lib/components/form-button-panel/form-button-panel.component';
 export * from './lib/components/back-button/back-button.component';
