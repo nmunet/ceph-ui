@@ -124,13 +124,13 @@
             </div>
           }}
           @if (customFilter) {
+          @if (typeof customFilter === 'string') {
+            <div cdsRow
+                  class="cds-mt-4 cds--type-body-02">
+              Filter {{ customFilter }}:
+            </div>
+          }
           @for (filter of stagedCustomFilters; track filter.id; let i = $index) {
-            @if (typeof customFilter === 'string') {
-              <div cdsRow
-                   class="cds-mt-4 cds--type-body-02">
-                Filter {{ customFilter }}:
-              </div>
-            }
             <div cdsRow
                  [cdsLayer]="1"
                  class="cds-mt-4">
@@ -156,7 +156,6 @@
                 </cds-text-label>
             </div>
 
-            @if (i !== 0) {
             <div cdsCol
                  [columnNumbers]="{sm: 2, md: 2, lg: 2}"
                 class="cds-mt-6">
@@ -167,7 +166,6 @@
                      [size]="icons.size16"></svg>
               </cds-icon-button>
             </div>
-            }
           </div>
           }
             @if (stagedCustomFilters.length < 5) {
