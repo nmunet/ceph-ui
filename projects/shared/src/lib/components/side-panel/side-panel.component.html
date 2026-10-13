@@ -1,22 +1,26 @@
-<div class="overlay"
-     (click)="close()"
-     *ngIf="expanded && overlay"></div>
+@if (expanded && overlay) {
+  <div class="overlay"
+    (click)="close()"
+  ></div>
+}
 
 <cds-panel [expanded]="expanded"
-           [attr.panel-size]="size"
-           [cdsLayer]="layer"
-           [cdsTheme]="theme">
+  [attr.panel-size]="size"
+  [cdsLayer]="layer"
+  [cdsTheme]="theme">
   <div>
     <cds-icon-button kind="ghost"
-                     class="float-end"
-                     title="Close"
-                     (click)="close()">
+      class="float-end"
+      title="Close"
+      (click)="close()">
       <svg cdsIcon="close"></svg>
     </cds-icon-button>
-    <div class="panel-header cds--type-heading-03"
-         *ngIf="headerText">
-    {{ headerText }}
-    </div>
+    @if (headerText) {
+      <div class="panel-header cds--type-heading-03"
+        >
+        {{ headerText }}
+      </div>
+    }
   </div>
   <ng-content select=".panel-content"></ng-content>
   <ng-content select=".panel-footer"></ng-content>

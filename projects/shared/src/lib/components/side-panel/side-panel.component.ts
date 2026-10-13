@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ButtonModule, IconModule, LayerModule, PanelModule, ThemeModule } from 'carbon-components-angular';
 
@@ -7,13 +7,12 @@ import { ButtonModule, IconModule, LayerModule, PanelModule, ThemeModule } from 
     templateUrl: './side-panel.component.html',
     styleUrl: './side-panel.component.scss',
     imports: [
-        PanelModule,
-        ButtonModule,
-        IconModule,
-        CommonModule,
-        LayerModule,
-        ThemeModule
-    ]
+    PanelModule,
+    ButtonModule,
+    IconModule,
+    LayerModule,
+    ThemeModule
+]
 })
 export class SidePanelComponent {
   @Input() expanded = false;

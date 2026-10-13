@@ -3,7 +3,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { detect } from 'detect-browser';
 
 import { Icons } from '../../enum/icons.enum';
-import { NgIf, NgClass } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { ButtonModule } from 'carbon-components-angular/button';
 import { IconModule } from 'carbon-components-angular/icon';
 import { NotificationType } from '../../enum/notification-type.enum';
@@ -21,12 +21,11 @@ const CLIPBOARD_SUCCESS_MESSAGE = `Copied text to the clipboard successfully.`;
     templateUrl: './copy2clipboard-button.component.html',
     styleUrls: ['./copy2clipboard-button.component.scss'],
     imports: [
-        NgIf,
-        NgClass,
-        ButtonModule,
-        IconModule,
-        LayoutModule
-    ],
+    NgClass,
+    ButtonModule,
+    IconModule,
+    LayoutModule
+],
     providers: [
         CdDatePipe
     ]
