@@ -11,7 +11,7 @@
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "noUnusedLocals": true,
@@ -26,23 +26,57 @@
     "baseUrl": "./",
     "resolveJsonModule": true,
     "paths": {
-      "~/*": ["projects/shared/src/lib/*"],
-      "@api/*": ["projects/shared/src/lib/api/*"],
-      "@classes/*": ["projects/shared/src/lib/classes/*"],
-      "@components/*": ["projects/shared/src/lib/components/*"],
-      "@constants/*": ["projects/shared/src/lib/constants/*"],
-      "@datatable/*": ["projects/shared/src/lib/datatable/*"],
-      "@decorators/*": ["projects/shared/src/lib/decorators/*"],
-      "@directives/*": ["projects/shared/src/lib/directives/*"],
-      "@enum/*": ["projects/shared/src/lib/enum/*"],
-      "@forms/*": ["projects/shared/src/lib/forms/*"],
-      "@models/*": ["projects/shared/src/lib/models/*"],
-      "@pipes/*": ["projects/shared/src/lib/pipes/*"],
-      "@services/*": ["projects/shared/src/lib/services/*"],
-      "@testing/*": ["projects/shared/src/lib/testing/*"]
+      "~/*": [
+        "projects/shared/src/lib/*"
+      ],
+      "@api/*": [
+        "projects/shared/src/lib/api/*"
+      ],
+      "@classes/*": [
+        "projects/shared/src/lib/classes/*"
+      ],
+      "@components/*": [
+        "projects/shared/src/lib/components/*"
+      ],
+      "@constants/*": [
+        "projects/shared/src/lib/constants/*"
+      ],
+      "@datatable/*": [
+        "projects/shared/src/lib/datatable/*"
+      ],
+      "@decorators/*": [
+        "projects/shared/src/lib/decorators/*"
+      ],
+      "@directives/*": [
+        "projects/shared/src/lib/directives/*"
+      ],
+      "@enum/*": [
+        "projects/shared/src/lib/enum/*"
+      ],
+      "@forms/*": [
+        "projects/shared/src/lib/forms/*"
+      ],
+      "@models/*": [
+        "projects/shared/src/lib/models/*"
+      ],
+      "@pipes/*": [
+        "projects/shared/src/lib/pipes/*"
+      ],
+      "@services/*": [
+        "projects/shared/src/lib/services/*"
+      ],
+      "@testing/*": [
+        "projects/shared/src/lib/testing/*"
+      ]
     },
-    "typeRoots": ["node_modules/@types", "projects/shared/typings.d.ts"],
-    "lib": ["es2018", "dom"],
+    "typeRoots": [
+      "node_modules/@types",
+      "projects/shared/typings.d.ts"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ],
     "allowJs": true,
     "preserveSymlinks": true
   },
