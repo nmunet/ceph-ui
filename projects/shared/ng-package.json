@@ -12,13 +12,17 @@
   "allowedNonPeerDependencies": [
     "@angular/cdk",
     "@ng-bootstrap/ng-bootstrap",
+    "@popperjs/core",
+    "chart.js",
     "detect-browser",
     "lodash",
+    "moment",
     "ng-click-outside",
     "ng2-charts",
     "ngx-cookie-service",
     "ngx-toastr",
     "simplebar-angular",
+    "tslib",
     "validator"
   ]
 }
