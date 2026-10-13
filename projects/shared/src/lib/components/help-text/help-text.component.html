@@ -1,10 +1,11 @@
-  <div class="form-text text-muted">
-    <ng-container *ngIf="formAllFieldsRequired; else contentTpl"
-                  i18n>
+<div class="form-text text-muted">
+  @if (formAllFieldsRequired) {
+    <ng-container
+      i18n>
       All fields are required, except where marked optional.
     </ng-container>
+  } @else {
+    <ng-content></ng-content>
+  }
 
-    <ng-template #contentTpl>
-      <ng-content></ng-content>
-    </ng-template>
-  </div>
+</div>

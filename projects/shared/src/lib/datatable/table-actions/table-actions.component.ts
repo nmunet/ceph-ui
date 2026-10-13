@@ -6,7 +6,7 @@ import { Icons } from '../../enum/icons.enum';
 import { CdTableAction } from '../../models/cd-table-action';
 import { CdTableSelection } from '../../models/cd-table-selection';
 import { Permission } from '../../models/permissions';
-import { NgIf, NgFor } from '@angular/common';
+
 import { ButtonModule } from 'carbon-components-angular/button';
 import { RouterLink } from '@angular/router';
 import { IconModule } from 'carbon-components-angular/icon';
@@ -17,13 +17,11 @@ import { DialogModule } from 'carbon-components-angular/dialog';
     templateUrl: './table-actions.component.html',
     styleUrls: ['./table-actions.component.scss'],
     imports: [
-        NgIf,
-        ButtonModule,
-        RouterLink,
-        IconModule,
-        DialogModule,
-        NgFor,
-    ]
+    ButtonModule,
+    RouterLink,
+    IconModule,
+    DialogModule
+]
 })
 export class TableActionsComponent implements OnChanges, OnInit {
   @Input()
