@@ -1,7 +1,7 @@
 {
   "name": "@ceph-dashboard/shared",
   "private": false,
-  "version": "0.0.39",
+  "version": "0.0.40",
   "publishConfig": {
     "access": "public"
   },
@@ -17,7 +17,6 @@
   "main": "fesm2022/ceph-dashboard-shared.mjs",
   "dependencies": {
     "@angular/cdk": "^19.0.0 || ^20.0.0",
-    "@ng-bootstrap/ng-bootstrap": "18.0.0",
     "@popperjs/core": "^2.11.8",
     "chart.js": "^4.5.1",
     "detect-browser": "5.2.0",
@@ -37,6 +36,7 @@
     "@angular/router": "^19.0.0 || ^20.0.0",
     "@carbon/icons": "^11.41.0",
     "@carbon/styles": "^1.57.0",
+    "@ng-bootstrap/ng-bootstrap": "19.0.0",
     "carbon-components-angular": "^5.56.2",
     "rxjs": "^7.5.0",
     "zone.js": "~0.15.0"
